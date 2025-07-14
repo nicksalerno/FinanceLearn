@@ -1,0 +1,642 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>FinanceLearn - Financial Literacy Made Fun</title>\
+    <meta name="description" content="Learn financial literacy through gamified lessons. Master budgeting, credit, investing, and more with our Duolingo-style learning platform.">\
+    <meta name="keywords" content="financial literacy, budgeting, investing, credit score, personal finance, education">\
+    \
+    <!-- Open Graph / Social Media -->\
+    <meta property="og:title" content="FinanceLearn - Financial Literacy Made Fun">\
+    <meta property="og:description" content="Learn financial literacy through gamified lessons. Master budgeting, credit, investing, and more.">\
+    <meta property="og:type" content="website">\
+    \
+    <!-- Favicon -->\
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>\uc0\u55357 \u56496 </text></svg>">\
+    \
+    <!-- Tailwind CSS -->\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    \
+    <!-- Lucide Icons -->\
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>\
+    \
+    <!-- React -->\
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>\
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>\
+    \
+    <!-- Babel for JSX -->\
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>\
+    \
+    <style>\
+        body \{\
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\
+        \}\
+        \
+        .gradient-bg \{\
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\
+        \}\
+        \
+        .card-hover \{\
+            transition: transform 0.2s ease, box-shadow 0.2s ease;\
+        \}\
+        \
+        .card-hover:hover \{\
+            transform: translateY(-2px);\
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\
+        \}\
+        \
+        .pulse-animation \{\
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;\
+        \}\
+        \
+        @keyframes pulse \{\
+            0%, 100% \{ opacity: 1; \}\
+            50% \{ opacity: .5; \}\
+        \}\
+    </style>\
+</head>\
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">\
+    <!-- Loading Screen -->\
+    <div id="loading" class="fixed inset-0 bg-white z-50 flex items-center justify-center">\
+        <div class="text-center">\
+            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">\
+                <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>\
+            </div>\
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Loading FinanceLearn...</h2>\
+            <div class="w-48 h-2 bg-gray-200 rounded-full mx-auto">\
+                <div class="h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full animate-pulse" style="width: 60%"></div>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <!-- Main App Container -->\
+    <div id="app"></div>\
+\
+    <!-- Footer -->\
+    <footer class="bg-white border-t border-gray-200 mt-16">\
+        <div class="max-w-6xl mx-auto px-6 py-8">\
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">\
+                <div class="col-span-1 md:col-span-2">\
+                    <div class="flex items-center space-x-2 mb-4">\
+                        <div class="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center">\
+                            <i data-lucide="dollar-sign" class="w-5 h-5 text-white"></i>\
+                        </div>\
+                        <span class="text-xl font-bold text-gray-800">FinanceLearn</span>\
+                    </div>\
+                    <p class="text-gray-600 mb-4">Making financial literacy accessible and fun through gamified learning. Master budgeting, investing, credit, and more.</p>\
+                    <div class="flex space-x-4">\
+                        <a href="#" class="text-gray-400 hover:text-gray-600">\
+                            <i data-lucide="twitter" class="w-5 h-5"></i>\
+                        </a>\
+                        <a href="#" class="text-gray-400 hover:text-gray-600">\
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>\
+                        </a>\
+                        <a href="#" class="text-gray-400 hover:text-gray-600">\
+                            <i data-lucide="github" class="w-5 h-5"></i>\
+                        </a>\
+                    </div>\
+                </div>\
+                \
+                <div>\
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Learn</h4>\
+                    <ul class="space-y-2 text-gray-600">\
+                        <li><a href="#" class="hover:text-gray-800">Budgeting</a></li>\
+                        <li><a href="#" class="hover:text-gray-800">Credit & Debt</a></li>\
+                        <li><a href="#" class="hover:text-gray-800">Investing</a></li>\
+                        <li><a href="#" class="hover:text-gray-800">Emergency Funds</a></li>\
+                    </ul>\
+                </div>\
+                \
+                <div>\
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Support</h4>\
+                    <ul class="space-y-2 text-gray-600">\
+                        <li><a href="#" class="hover:text-gray-800">Help Center</a></li>\
+                        <li><a href="#" class="hover:text-gray-800">Contact Us</a></li>\
+                        <li><a href="#" class="hover:text-gray-800">Privacy Policy</a></li>\
+                        <li><a href="#" class="hover:text-gray-800">Terms of Service</a></li>\
+                    </ul>\
+                </div>\
+            </div>\
+            \
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">\
+                <p>&copy; 2025 FinanceLearn. Made with \uc0\u10084 \u65039  for financial education.</p>\
+            </div>\
+        </div>\
+    </footer>\
+\
+    <script type="text/babel">\
+        const \{ useState, useEffect \} = React;\
+        const \{ createRoot \} = ReactDOM;\
+\
+        // Icon component wrapper for Lucide\
+        const Icon = (\{ name, className = "w-6 h-6", ...props \}) => \{\
+            useEffect(() => \{\
+                lucide.createIcons();\
+            \}, []);\
+            return React.createElement('i', \{ \
+                'data-lucide': name, \
+                className,\
+                ...props \
+            \});\
+        \};\
+\
+        const FinancialLiteracyApp = () => \{\
+            const [currentView, setCurrentView] = useState('home');\
+            const [userProgress, setUserProgress] = useState(\{\
+                level: 1,\
+                xp: 0,\
+                streak: 0,\
+                completedLessons: [],\
+                lastActiveDate: new Date().toDateString()\
+            \});\
+            const [currentLesson, setCurrentLesson] = useState(null);\
+            const [currentQuestion, setCurrentQuestion] = useState(0);\
+            const [selectedAnswer, setSelectedAnswer] = useState(null);\
+            const [showResult, setShowResult] = useState(false);\
+            const [lessonComplete, setLessonComplete] = useState(false);\
+            const [score, setScore] = useState(0);\
+\
+            // Financial literacy lessons data\
+            const lessons = [\
+                \{\
+                    id: 1,\
+                    title: "Budgeting Basics",\
+                    description: "Learn how to create and manage a personal budget",\
+                    icon: "piggy-bank",\
+                    difficulty: "Beginner",\
+                    xpReward: 50,\
+                    questions: [\
+                        \{\
+                            question: "What is the 50/30/20 budgeting rule?",\
+                            options: [\
+                                "50% needs, 30% wants, 20% savings",\
+                                "50% wants, 30% needs, 20% savings",\
+                                "50% savings, 30% needs, 20% wants",\
+                                "50% investments, 30% needs, 20% wants"\
+                            ],\
+                            correct: 0,\
+                            explanation: "The 50/30/20 rule suggests allocating 50% of income to needs, 30% to wants, and 20% to savings and debt repayment."\
+                        \},\
+                        \{\
+                            question: "Which of these is considered a 'need' in budgeting?",\
+                            options: [\
+                                "Netflix subscription",\
+                                "Rent payment",\
+                                "Dining out",\
+                                "New shoes"\
+                            ],\
+                            correct: 1,\
+                            explanation: "Rent is a basic necessity for shelter, making it a 'need' rather than a 'want'."\
+                        \},\
+                        \{\
+                            question: "How often should you review your budget?",\
+                            options: [\
+                                "Once a year",\
+                                "Every 6 months",\
+                                "Monthly",\
+                                "Only when you have financial problems"\
+                            ],\
+                            correct: 2,\
+                            explanation: "Monthly budget reviews help you stay on track and adjust for changing circumstances."\
+                        \}\
+                    ]\
+                \},\
+                \{\
+                    id: 2,\
+                    title: "Understanding Credit",\
+                    description: "Master credit scores, cards, and building good credit",\
+                    icon: "credit-card",\
+                    difficulty: "Beginner",\
+                    xpReward: 60,\
+                    questions: [\
+                        \{\
+                            question: "What is a good credit score range?",\
+                            options: [\
+                                "300-579",\
+                                "580-669",\
+                                "670-739",\
+                                "740-850"\
+                            ],\
+                            correct: 3,\
+                            explanation: "A credit score of 740-850 is considered excellent and will qualify you for the best rates."\
+                        \},\
+                        \{\
+                            question: "What factor has the biggest impact on your credit score?",\
+                            options: [\
+                                "Length of credit history",\
+                                "Payment history",\
+                                "Types of credit",\
+                                "New credit inquiries"\
+                            ],\
+                            correct: 1,\
+                            explanation: "Payment history accounts for 35% of your credit score, making it the most important factor."\
+                        \},\
+                        \{\
+                            question: "What's the recommended credit utilization ratio?",\
+                            options: [\
+                                "Below 10%",\
+                                "Below 30%",\
+                                "Below 50%",\
+                                "Below 70%"\
+                            ],\
+                            correct: 1,\
+                            explanation: "Keeping your credit utilization below 30% is recommended, though below 10% is even better."\
+                        \}\
+                    ]\
+                \},\
+                \{\
+                    id: 3,\
+                    title: "Investment Fundamentals",\
+                    description: "Learn the basics of investing and building wealth",\
+                    icon: "trending-up",\
+                    difficulty: "Intermediate",\
+                    xpReward: 80,\
+                    questions: [\
+                        \{\
+                            question: "What is compound interest?",\
+                            options: [\
+                                "Interest paid only on the principal",\
+                                "Interest paid on both principal and accumulated interest",\
+                                "Interest that compounds monthly",\
+                                "Interest that never changes"\
+                            ],\
+                            correct: 1,\
+                            explanation: "Compound interest is earned on both your original investment and previously earned interest, creating exponential growth."\
+                        \},\
+                        \{\
+                            question: "What does diversification mean in investing?",\
+                            options: [\
+                                "Investing in only one stock",\
+                                "Spreading investments across different assets",\
+                                "Only investing in bonds",\
+                                "Timing the market perfectly"\
+                            ],\
+                            correct: 1,\
+                            explanation: "Diversification reduces risk by spreading investments across different asset classes, sectors, and geographies."\
+                        \},\
+                        \{\
+                            question: "What is a 401(k)?",\
+                            options: [\
+                                "A type of savings account",\
+                                "A government bond",\
+                                "An employer-sponsored retirement plan",\
+                                "A type of insurance"\
+                            ],\
+                            correct: 2,\
+                            explanation: "A 401(k) is an employer-sponsored retirement savings plan that offers tax advantages."\
+                        \}\
+                    ]\
+                \},\
+                \{\
+                    id: 4,\
+                    title: "Emergency Fund Essentials",\
+                    description: "Build and maintain your financial safety net",\
+                    icon: "target",\
+                    difficulty: "Beginner",\
+                    xpReward: 45,\
+                    questions: [\
+                        \{\
+                            question: "How much should you have in an emergency fund?",\
+                            options: [\
+                                "1 month of expenses",\
+                                "3-6 months of expenses",\
+                                "1 year of expenses",\
+                                "Whatever you can afford"\
+                            ],\
+                            correct: 1,\
+                            explanation: "Financial experts recommend 3-6 months of living expenses for a solid emergency fund."\
+                        \},\
+                        \{\
+                            question: "Where should you keep your emergency fund?",\
+                            options: [\
+                                "In stocks",\
+                                "In a high-yield savings account",\
+                                "Under your mattress",\
+                                "In cryptocurrency"\
+                            ],\
+                            correct: 1,\
+                            explanation: "Emergency funds should be easily accessible and safe, making high-yield savings accounts ideal."\
+                        \},\
+                        \{\
+                            question: "What qualifies as a true emergency?",\
+                            options: [\
+                                "A vacation opportunity",\
+                                "Job loss or major medical expense",\
+                                "A sale at your favorite store",\
+                                "Wanting to upgrade your phone"\
+                            ],\
+                            correct: 1,\
+                            explanation: "True emergencies are unexpected, necessary expenses like job loss, medical bills, or major repairs."\
+                        \}\
+                    ]\
+                \}\
+            ];\
+\
+            // Initialize icons after component mounts\
+            useEffect(() => \{\
+                lucide.createIcons();\
+            \}, [currentView, currentLesson, lessonComplete]);\
+\
+            // Update streak and check level progression\
+            useEffect(() => \{\
+                const today = new Date().toDateString();\
+                const lastActive = userProgress.lastActiveDate;\
+                \
+                if (lastActive !== today) \{\
+                    const yesterday = new Date();\
+                    yesterday.setDate(yesterday.getDate() - 1);\
+                    \
+                    if (lastActive === yesterday.toDateString()) \{\
+                        setUserProgress(prev => (\{\
+                            ...prev,\
+                            streak: prev.streak + 1,\
+                            lastActiveDate: today\
+                        \}));\
+                    \} else \{\
+                        setUserProgress(prev => (\{\
+                            ...prev,\
+                            streak: 0,\
+                            lastActiveDate: today\
+                        \}));\
+                    \}\
+                \}\
+            \}, [userProgress.lastActiveDate]);\
+\
+            const calculateLevel = (xp) => \{\
+                return Math.floor(xp / 100) + 1;\
+            \};\
+\
+            const getXpForNextLevel = (xp) => \{\
+                const currentLevel = calculateLevel(xp);\
+                return currentLevel * 100;\
+            \};\
+\
+            const startLesson = (lesson) => \{\
+                setCurrentLesson(lesson);\
+                setCurrentQuestion(0);\
+                setSelectedAnswer(null);\
+                setShowResult(false);\
+                setLessonComplete(false);\
+                setScore(0);\
+                setCurrentView('lesson');\
+            \};\
+\
+            const handleAnswerSelect = (answerIndex) => \{\
+                setSelectedAnswer(answerIndex);\
+            \};\
+\
+            const handleSubmitAnswer = () => \{\
+                if (selectedAnswer === null) return;\
+                \
+                const correct = selectedAnswer === currentLesson.questions[currentQuestion].correct;\
+                if (correct) \{\
+                    setScore(prev => prev + 1);\
+                \}\
+                \
+                setShowResult(true);\
+                \
+                setTimeout(() => \{\
+                    if (currentQuestion < currentLesson.questions.length - 1) \{\
+                        setCurrentQuestion(prev => prev + 1);\
+                        setSelectedAnswer(null);\
+                        setShowResult(false);\
+                    \} else \{\
+                        completeLesson();\
+                    \}\
+                \}, 2000);\
+            \};\
+\
+            const completeLesson = () => \{\
+                const xpEarned = Math.floor((score / currentLesson.questions.length) * currentLesson.xpReward);\
+                \
+                setUserProgress(prev => (\{\
+                    ...prev,\
+                    xp: prev.xp + xpEarned,\
+                    level: calculateLevel(prev.xp + xpEarned),\
+                    completedLessons: [...prev.completedLessons, currentLesson.id]\
+                \}));\
+                \
+                setLessonComplete(true);\
+            \};\
+\
+            const resetLesson = () => \{\
+                setCurrentLesson(null);\
+                setCurrentView('home');\
+                setLessonComplete(false);\
+            \};\
+\
+            const renderProgressBar = () => \{\
+                const currentLevelXp = (userProgress.level - 1) * 100;\
+                const nextLevelXp = userProgress.level * 100;\
+                const progress = ((userProgress.xp - currentLevelXp) / (nextLevelXp - currentLevelXp)) * 100;\
+\
+                return (\
+                    <div className="w-full bg-gray-200 rounded-full h-3">\
+                        <div \
+                            className="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full transition-all duration-300"\
+                            style=\{\{ width: `$\{progress\}%` \}\}\
+                        />\
+                    </div>\
+                );\
+            \};\
+\
+            const renderHome = () => (\
+                <div className="max-w-4xl mx-auto p-6 space-y-8">\
+                    \{/* Header Stats */\}\
+                    <div className="bg-white rounded-xl shadow-lg p-6 card-hover">\
+                        <div className="flex items-center justify-between mb-4">\
+                            <div className="flex items-center space-x-4">\
+                                <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">\
+                                    <Icon name="dollar-sign" className="w-8 h-8 text-white" />\
+                                </div>\
+                                <div>\
+                                    <h1 className="text-2xl font-bold text-gray-800">Financial Literacy</h1>\
+                                    <p className="text-gray-600">Level \{userProgress.level\}</p>\
+                                </div>\
+                            </div>\
+                            <div className="flex items-center space-x-6">\
+                                <div className="text-center">\
+                                    <div className="flex items-center space-x-1">\
+                                        <Icon name="flame" className="w-5 h-5 text-orange-500" />\
+                                        <span className="text-xl font-bold text-orange-500">\{userProgress.streak\}</span>\
+                                    </div>\
+                                    <p className="text-xs text-gray-500">Day streak</p>\
+                                </div>\
+                                <div className="text-center">\
+                                    <div className="flex items-center space-x-1">\
+                                        <Icon name="star" className="w-5 h-5 text-yellow-500" />\
+                                        <span className="text-xl font-bold text-yellow-500">\{userProgress.xp\}</span>\
+                                    </div>\
+                                    <p className="text-xs text-gray-500">XP</p>\
+                                </div>\
+                            </div>\
+                        </div>\
+                        \
+                        <div className="space-y-2">\
+                            <div className="flex justify-between text-sm text-gray-600">\
+                                <span>Progress to Level \{userProgress.level + 1\}</span>\
+                                <span>\{userProgress.xp\} / \{getXpForNextLevel(userProgress.xp)\} XP</span>\
+                            </div>\
+                            \{renderProgressBar()\}\
+                        </div>\
+                    </div>\
+\
+                    \{/* Lessons Grid */\}\
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">\
+                        \{lessons.map((lesson) => \{\
+                            const isCompleted = userProgress.completedLessons.includes(lesson.id);\
+                            const isLocked = lesson.id > 1 && !userProgress.completedLessons.includes(lesson.id - 1);\
+                            \
+                            return (\
+                                <div \
+                                    key=\{lesson.id\} \
+                                    className=\{`bg-white rounded-xl shadow-lg p-6 card-hover transition-all duration-300 cursor-pointer $\{\
+                                        isLocked ? 'opacity-50 cursor-not-allowed' : ''\
+                                    \}`\}\
+                                    onClick=\{() => !isLocked && startLesson(lesson)\}\
+                                >\
+                                    <div className="flex items-start justify-between mb-4">\
+                                        <div className=\{`w-12 h-12 rounded-lg flex items-center justify-center $\{\
+                                            isCompleted ? 'bg-green-100 text-green-600' : 'bg-blue-100 text-blue-600'\
+                                        \}`\}>\
+                                            <Icon name=\{isCompleted ? "check-circle" : lesson.icon\} className="w-6 h-6" />\
+                                        </div>\
+                                        <div className="flex items-center space-x-2">\
+                                            <Icon name="star" className="w-4 h-4 text-yellow-500" />\
+                                            <span className="text-sm font-medium text-gray-600">\{lesson.xpReward\} XP</span>\
+                                        </div>\
+                                    </div>\
+                                    \
+                                    <h3 className="text-xl font-bold text-gray-800 mb-2">\{lesson.title\}</h3>\
+                                    <p className="text-gray-600 mb-4">\{lesson.description\}</p>\
+                                    \
+                                    <div className="flex items-center justify-between">\
+                                        <span className=\{`px-3 py-1 rounded-full text-xs font-medium $\{\
+                                            lesson.difficulty === 'Beginner' ? 'bg-green-100 text-green-800' :\
+                                            lesson.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :\
+                                            'bg-red-100 text-red-800'\
+                                        \}`\}>\
+                                            \{lesson.difficulty\}\
+                                        </span>\
+                                        \
+                                        \{isCompleted && (\
+                                            <div className="flex items-center space-x-1 text-green-600">\
+                                                <Icon name="award" className="w-4 h-4" />\
+                                                <span className="text-xs font-medium">Completed</span>\
+                                            </div>\
+                                        )\}\
+                                    </div>\
+                                </div>\
+                            );\
+                        \})\}\
+                    </div>\
+                </div>\
+            );\
+\
+            const renderLesson = () => \{\
+                if (lessonComplete) \{\
+                    const xpEarned = Math.floor((score / currentLesson.questions.length) * currentLesson.xpReward);\
+                    const accuracy = Math.round((score / currentLesson.questions.length) * 100);\
+                    \
+                    return (\
+                        <div className="max-w-2xl mx-auto p-6">\
+                            <div className="bg-white rounded-xl shadow-lg p-8 text-center">\
+                                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">\
+                                    <Icon name="trophy" className="w-10 h-10 text-green-600" />\
+                                </div>\
+                                \
+                                <h2 className="text-2xl font-bold text-gray-800 mb-2">Lesson Complete!</h2>\
+                                <p className="text-gray-600 mb-6">Great job on completing "\{currentLesson.title\}"</p>\
+                                \
+                                <div className="grid grid-cols-2 gap-4 mb-6">\
+                                    <div className="bg-blue-50 rounded-lg p-4">\
+                                        <div className="text-2xl font-bold text-blue-600">\{accuracy\}%</div>\
+                                        <div className="text-sm text-gray-600">Accuracy</div>\
+                                    </div>\
+                                    <div className="bg-yellow-50 rounded-lg p-4">\
+                                        <div className="text-2xl font-bold text-yellow-600">+\{xpEarned\}</div>\
+                                        <div className="text-sm text-gray-600">XP Earned</div>\
+                                    </div>\
+                                </div>\
+                                \
+                                <button \
+                                    onClick=\{resetLesson\}\
+                                    className="bg-gradient-to-r from-green-400 to-green-600 text-white px-6 py-3 rounded-lg font-medium hover:from-green-500 hover:to-green-700 transition-all duration-200"\
+                                >\
+                                    Continue Learning\
+                                </button>\
+                            </div>\
+                        </div>\
+                    );\
+                \}\
+\
+                const question = currentLesson.questions[currentQuestion];\
+                const isCorrect = selectedAnswer === question.correct;\
+                \
+                return (\
+                    <div className="max-w-2xl mx-auto p-6">\
+                        <div className="bg-white rounded-xl shadow-lg p-8">\
+                            \{/* Progress indicator */\}\
+                            <div className="flex items-center justify-between mb-6">\
+                                <div className="flex items-center space-x-2">\
+                                    <Icon name="book-open" className="w-5 h-5 text-blue-600" />\
+                                    <span className="text-sm font-medium text-gray-600">\
+                                        \{currentQuestion + 1\} of \{currentLesson.questions.length\}\
+                                    </span>\
+                                </div>\
+                                <div className="text-sm text-gray-600">\
+                                    \{currentLesson.title\}\
+                                </div>\
+                            </div>\
+\
+                            \{/* Progress bar */\}\
+                            <div className="w-full bg-gray-200 rounded-full h-2 mb-8">\
+                                <div \
+                                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"\
+                                    style=\{\{ width: `$\{((currentQuestion + 1) / currentLesson.questions.length) * 100\}%` \}\}\
+                                />\
+                            </div>\
+\
+                            \{/* Question */\}\
+                            <h2 className="text-xl font-bold text-gray-800 mb-6">\{question.question\}</h2>\
+\
+                            \{/* Options */\}\
+                            <div className="space-y-3 mb-6">\
+                                \{question.options.map((option, index) => (\
+                                    <button\
+                                        key=\{index\}\
+                                        onClick=\{() => !showResult && handleAnswerSelect(index)\}\
+                                        className=\{`w-full p-4 text-left rounded-lg border-2 transition-all duration-200 $\{\
+                                            showResult \
+                                                ? index === question.correct \
+                                                    ? 'border-green-500 bg-green-50 text-green-700' \
+                                                    : index === selectedAnswer \
+                                                        ? 'border-red-500 bg-red-50 text-red-700' \
+                                                        : 'border-gray-200 bg-gray-50 text-gray-400'\
+                                                : selectedAnswer === index \
+                                                    ? 'border-blue-500 bg-blue-50 text-blue-700' \
+                                                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'\
+                                        \}`\}\
+                                        disabled=\{showResult\}\
+                                    >\
+                                        <div className="flex items-center space-x-3">\
+                                            <div className=\{`w-6 h-6 rounded-full border-2 flex items-center justify-center $\{\
+                                                showResult \
+                                                    ? index === question.correct \
+                                                        ? 'border-green-500 bg-green-500' \
+                                                        : index === selectedAnswer \
+                                                            ? 'border-red-500 bg-red-500' \
+                                                            : 'border-gray-300'\
+                                                    : selectedAnswer === index \
+                                                        ? 'border-blue-500 bg-blue-500' \
+                                                        : 'border-gray-300'\
+                                            \}`\}>\
+                                                \{showResult && index === question.correct && (}
